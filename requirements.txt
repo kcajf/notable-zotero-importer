@@ -1,0 +1,2 @@
+pyzotero
+python-slugify
