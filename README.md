@@ -9,6 +9,6 @@ Downside is that you need to use Zotero.
 
 The script deletes attachments (but not the metadata) in Zotero once they've been imported, to save space (free Zotero sync tier only offers 300MB).
 
-Need a zotero api key from https://www.zotero.org/settings/keys. Script expects to find `ZOTERO_LIBRARY_ID` and `ZOTERO_API_KEY` environment variables.
+Need a zotero api key from https://www.zotero.org/settings/keys. Script expects to find `ZOTERO_LIBRARY_ID` and `ZOTERO_API_KEY` environment variables. Needs write access since it modifies tags and deletes items.
 
 I would recommend setting this up to run periodically on your system, or on a server that can sync with your notable directory.
