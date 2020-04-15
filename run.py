@@ -115,6 +115,7 @@ def main():
 
         note_text = note_header + "\n" + "\n".join(note_body_lines)
 
+        # Write it out
         note_path = os.path.join(notes_dir, item_slug + ".md")
         logger.info(f"--> Writing note to {note_path}")
         if os.path.exists(note_path):
@@ -124,13 +125,16 @@ def main():
         with open(note_path, "w") as f:
             f.write(note_text)
 
+        # Add tag in zotero so we don't import it again
         logger.info(f"--> Adding '{IMPORTED_TAG}' tag")
         zot.add_tags(item, IMPORTED_TAG)
 
+        # Delete Zotero attachment (not necessary, but saves zotero sync space)
         logger.info(f"--> Deleting PDF attachment in zotero")
         zot.delete_item(pdfs[0])
 
-        # TODO: zotero item seems to have a version. If that changes, could re-update at least the metadata? cautious about overwriting file though
+        # TODO: zotero item seems to have a version. If that changes, could re-update the metadata? cautious about overwriting file though, since it may have been annotated etc locally.
+
     logger.info("All done")
 
 
